@@ -1,3 +1,4 @@
+/*
 import { NextApiRequest, NextApiResponse } from 'next';
 import absoluteUrl from 'next-absolute-url';
 import mongoose, { Document, Model, Schema } from 'mongoose';
@@ -57,3 +58,4 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     return res.status(404).json({ message: 'Route introuvable.' });
 }
+*/

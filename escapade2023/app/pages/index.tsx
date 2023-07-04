@@ -1,3 +1,4 @@
+/*
 import { useState, useEffect } from 'react';
 import mongoose, { Document, Model, Schema } from 'mongoose';
 
@@ -68,3 +69,4 @@ export default function Home() {
         </div>
 );
 }
+*/
