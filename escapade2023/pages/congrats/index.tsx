@@ -20,26 +20,25 @@ export default function DisplayWinner() {
     );
 
     console.log(teamPosition, "POSITION")
-    switch (teamPosition) {
-        case 1:
-            return <div>
-                Bravo vous êtes la 1ère équipe à arriver au bout de cette chasse ! Vous êtes officiellement les rois et reines de PDB ! La bise à Denise !
-                <style jsx>{`
+    if (teamPosition === 1) {
+        return <div>
+            Bravo vous êtes la 1ère équipe à arriver au bout de cette chasse ! Vous êtes officiellement les rois et
+            reines
+            de PDB ! La bise à Denise !
+            <style jsx>{`
       div {color: ${teamColor};}`}</style>
-            </div>;
-
-        case 2:
-
-            return <div>
-                Bravo vous êtes la 2ème équipe à finir cette chasse ! C'était pas loin de ramener la coupe à la maison !
-                <style jsx>{`div {color: ${teamColor};}`}</style>
-            </div>;
-
-        case 3: return <div>
-            Félicitations, vous êtes la 3ème équipe à terminer cette chasse ! La prochaine fois passé peut être moins de temps à la buvette...
+        </div>;
+    } else if (teamPosition === 2) {
+        return <div>
+            Bravo vous êtes la 2ème équipe à finir cette chasse ! C'était pas loin de ramener la coupe à la maison !
             <style jsx>{`div {color: ${teamColor};}`}</style>
         </div>;
-
+    } else if (teamPosition === 3) {
+        return <div>
+            Félicitations, vous êtes la 3ème équipe à terminer cette chasse ! La prochaine fois passé peut être moins de
+            temps à la buvette...
+            <style jsx>{`div {color: ${teamColor};}`}</style>
+        </div>;
     }
 
     return (
