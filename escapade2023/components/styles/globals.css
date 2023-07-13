@@ -88,6 +88,32 @@ body {
 body {
   background: url("https://img.freepik.com/photos-premium/beau-paysage-base-illustration-rendu-3d_771975-25.jpg?w=2000");
 }
+.winner  {
+  border: 2vw ridge rgba(255, 255, 255, .6);
+  padding: 5vh 5vw;
+  margin: 30vh 5vw;
+  border-radius: 2vh;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f4e5;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, .2);
+}
+
+h1 {
+  color: black;
+  margin-bottom: 1rem;
+  font-size: 6vw;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  color: orange;
+  width: 75%;
+  font-size: 5vw;
+}
 
 a {
   color: inherit;

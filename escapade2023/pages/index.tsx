@@ -51,7 +51,6 @@ export default function PasswordPage() {
             } // else?
             let response = await fetch(`/api/getPassword?password=` + password);
             let collection = await response.json();
-            console.log(collection.password, 'la collec')
             const teamColor = JSON.stringify(collection.team)
             setError("")
 
@@ -95,67 +94,77 @@ export default function PasswordPage() {
             <form onSubmit={handleSubmit}>
                 <input type="tel" maxLength={6} value={password} onChange={handleChange} />
                 <button type="submit">Valider l'ultime réponse</button>
-                {error ? <div className="alert-error">{error}</div> : null}
-                {message ? <div className="alert-message">{message}</div> : null}
             </form>
+            {error ? <div className="alert-error">{error}</div> : null}
+            {message ? <div className="alert-message">{message}</div> : null}
             <style jsx>{`
               
               body{
               background: url("https://img.freepik.com/photos-premium/beau-paysage-base-illustration-rendu-3d_771975-25.jpg?w=2000");
               }
               .welcome {
-                border: 2rem ridge rgba(255, 255, 255, .6);
-                padding: 3rem;
-                margin: 10rem 3rem 3rem;
-                border-radius: 1rem;
+                border: 2vw ridge rgba(255, 255, 255, .6);
+                padding: 5vh 5vw;
+                margin: 30vh 5vw;
+                border-radius: 2vh;
                 display: flex;
                 flex-wrap: wrap;
                 flex-direction: column;
                 justify-content: space-between;
                 align-items: center;
                 background: #f8f4e5;
+                box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, .2);
               }
 
               h1 {
                 color: black;
-                margin-bottom: 1rem
+                margin-bottom: 1rem;
+                font-size: 6vw;
               }
 
               h2 {
                 margin-bottom: 1rem;
-                color: black;
+                color: orange;
                 width: 75%;
+                font-size: 5vw;
               }
 
               input {
-                letter-spacing: 0.5rem;
-                font-size: 2rem;
+                display: block;
+                letter-spacing: 1.6vw;
+                font-size: 6vw;
                 font-weight: bold;
-                height: 30px;
-                padding-left: 20px;
-                padding-right: 20px;
-                margin-bottom: 0.5rem;
-                width: 90%;
-                border-radius: 1rem;
+                height: 4vh;
+                padding-left: 4vw ;
+                margin-bottom: 1.6vw;
+                width: 40vw;
+                border-radius: 3.3vw;
                 outline: 0;
 
               }
 
               button {
                 display: block;
-                border-radius: 1rem;
-                padding: 0.5rem;
-                margin: 0 3rem;
+                border-radius: 3.3vw;
+                padding: 1.6vw;
+                margin: 0 3.5vw;
                 
               }
 
               .alert-error {
-                margin-top: 1rem;
-                padding: 0.3rem;
+                margin-top: 3.3vw;
+                padding: 1vw;
                 color: red;
-                border: 0.2rem red solid;
-                border-radius: 0.5rem;
-                justify-content: center;
+                border: 0.667vw red solid;
+                border-radius: 1.667vw;
+              }
+              
+              .alert-message {
+                margin-top: 3.3vw;
+                padding: 1vw;
+                color: red;
+                border: 0.667vw red solid;
+                border-radius: 1.667vw;
               }
 
 
