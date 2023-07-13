@@ -10,7 +10,7 @@ export default function AddPost() {
         e.preventDefault();
         if (password) {
             try {
-                let response = await fetch("https://escapade.vercel.app/api/addPost", {
+                let response = await fetch("/api/addPost", {
                     method: "POST",
                     body: JSON.stringify({
                         password
