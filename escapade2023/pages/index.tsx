@@ -1,4 +1,4 @@
-import {ChangeEvent, FormEvent, useState } from 'react';
+import React, {ChangeEvent, FormEvent, useState } from 'react';
 import { useRouter } from 'next/router';
 import {NEXT_URL} from "../lib/VercelURL"
 import Layout from '../components/Layout';
@@ -30,6 +30,8 @@ interface PasswordPageProps {
 }
 
 export default function PasswordPage() {
+    const [message, setMessage] = useState("");
+    const [error, setError] = useState("");
     const [password, setPassword] = useState('');
     const router = useRouter();
 
@@ -51,6 +53,7 @@ export default function PasswordPage() {
             let collection = await response.json();
             console.log(collection.password, 'la collec')
             const teamColor = JSON.stringify(collection.team)
+            setError("")
 
             if (collection) {
                 await fetch('/api/editCounter', {
@@ -64,6 +67,8 @@ export default function PasswordPage() {
 
                 const teamPosition = JSON.stringify(count.count)
 
+                setError("");
+                setMessage("Bien joué, c'est gagné ! WAOOUUUUUUUUUUUUHHHHHHHHH");
 
                 window.localStorage.setItem("teamColor", teamColor); // setting team color in localStorage to color the congrats page
 
@@ -78,18 +83,86 @@ export default function PasswordPage() {
             }
 
         } catch (error) {
+            setError("C'est loupé ! C'est tchao ! (On a rien vu, retentez votre chance)")
             console.log("Mauvais mot de passe, c'est tchao ! ", error);
         }
     };
 
     return (
-        <div>
-            <h1>Welcome</h1>
+        <div className="welcome">
+            <h1>Bienvenue à l'étape finale !</h1>
+            <h2> Entrez les 6 chiffres du mot de passe pour terminer l'aventure :</h2>
             <form onSubmit={handleSubmit}>
-                <input type="password" value={password} onChange={handleChange} />
+                <input type="tel" maxLength="6" value={password} onChange={handleChange} />
                 <button type="submit">Valider l'ultime réponse</button>
+                {error ? <div className="alert-error">{error}</div> : null}
+                {message ? <div className="alert-message">{message}</div> : null}
             </form>
+            <style jsx>{`
+              
+              body{
+              background: url("https://img.freepik.com/photos-premium/beau-paysage-base-illustration-rendu-3d_771975-25.jpg?w=2000");
+              }
+              .welcome {
+                border: 2rem ridge rgba(255, 255, 255, .6);
+                padding: 3rem;
+                margin: 10rem 3rem 3rem;
+                border-radius: 1rem;
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                background: #f8f4e5;
+              }
+
+              h1 {
+                color: black;
+                margin-bottom: 1rem
+              }
+
+              h2 {
+                margin-bottom: 1rem;
+                color: black;
+                width: 75%;
+              }
+
+              input {
+                letter-spacing: 0.5rem;
+                font-size: 2rem;
+                font-weight: bold;
+                height: 30px;
+                padding-left: 20px;
+                padding-right: 20px;
+                margin-bottom: 0.5rem;
+                width: 90%;
+                border-radius: 1rem;
+                outline: 0;
+
+              }
+
+              button {
+                display: block;
+                border-radius: 1rem;
+                padding: 0.5rem;
+                margin: 0 3rem;
+                
+              }
+
+              .alert-error {
+                margin-top: 1rem;
+                padding: 0.3rem;
+                color: red;
+                border: 0.2rem red solid;
+                border-radius: 0.5rem;
+                justify-content: center;
+              }
+
+
+
+            `}</style>
         </div>
+
     );
 }
 
