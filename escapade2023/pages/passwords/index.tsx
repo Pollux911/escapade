@@ -100,7 +100,7 @@ export default function AddPost() {
         e.preventDefault();
         if (counter) {
             try {
-                let response = await fetch("http://localhost:3000/api/addCounter", {
+                let response = await fetch("/api/addCounter", {
                     method: "POST",
                     body: JSON.stringify({
                         counter

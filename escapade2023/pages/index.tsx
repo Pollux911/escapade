@@ -47,20 +47,19 @@ export default function PasswordPage() {
             if ( localStorage.getItem("teamColor")) {
                 router.push('/congrats')
             } // else?
-            console.log(`${NEXT_URL}/api/getPassword?password=`, "ladresse de ses norts")
-            let response = await fetch(`${NEXT_URL}/api/getPassword?password=` + password);
+            let response = await fetch(`/api/getPassword?password=` + password);
             let collection = await response.json();
             console.log(collection.password, 'la collec')
             const teamColor = JSON.stringify(collection.team)
 
             if (collection) {
-                await fetch('http://localhost:3000/api/editCounter', {
+                await fetch('/api/editCounter', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     }
                 })
-                let counter = await fetch('http://localhost:3000/api/getCounter');
+                let counter = await fetch('/api/getCounter');
                 let count = await counter.json()
 
                 const teamPosition = JSON.stringify(count.count)
