@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Layout from "../../components/Layout";
 
-/*export default function AddPost() {
+export default function AddPost() {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [message, setMessage] = useState("");
@@ -16,11 +16,12 @@ import Layout from "../../components/Layout";
                         password
                     }),
                     headers: {
-                        Accept: "application/json, text/plain, *!/!*",
+                        Accept: "application/json, text/plain, */*",
                         "Content-Type": "application/json",
                     },
                 });
                 response = await response.json();
+                console.log(response)
                 setPassword("");
                 setError("");
                 setMessage("Post added successfully");
@@ -88,10 +89,9 @@ import Layout from "../../components/Layout";
             </style>
         </Layout>
     );
-}*/
+}
 
-/*
-export default function AddCounter() {
+/*export default function AddCounter() {
     const [counter, setCounter] = useState("");
     const [error, setError] = useState("");
     const [message, setMessage] = useState("");
