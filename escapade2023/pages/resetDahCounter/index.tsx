@@ -4,7 +4,7 @@ import {NEXT_URL} from "../../lib/VercelURL"
 export default  function CounterUpdate() {
     const resetCounter = async (e: any) => {
         e.preventDefault();
-         await fetch(`https://escapade-pollux911.vercel.app/api/resetCounter`, {
+         await fetch(`escapade-pollux911.vercel.app/api/resetCounter`, {
              method: 'POST',
              headers: {
                  'Content-Type': 'application/json',
