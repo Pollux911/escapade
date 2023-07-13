@@ -93,7 +93,7 @@ export default function PasswordPage() {
             <h1>Bienvenue à l'étape finale !</h1>
             <h2> Entrez les 6 chiffres du mot de passe pour terminer l'aventure :</h2>
             <form onSubmit={handleSubmit}>
-                <input type="tel" maxLength="6" value={password} onChange={handleChange} />
+                <input type="tel" maxLength={6} value={password} onChange={handleChange} />
                 <button type="submit">Valider l'ultime réponse</button>
                 {error ? <div className="alert-error">{error}</div> : null}
                 {message ? <div className="alert-message">{message}</div> : null}
