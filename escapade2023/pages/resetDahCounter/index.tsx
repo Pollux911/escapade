@@ -1,11 +1,10 @@
 import React from "react";
-import nextURL from '..'
+import {NEXT_URL} from "../../lib/VercelURL"
 
 export default  function CounterUpdate() {
     const resetCounter = async (e: any) => {
         e.preventDefault();
-        console.log(  `${nextURL}/api/resetCounter`)
-         await fetch(`${nextURL}/api/resetCounter`, {
+         await fetch(`https://escapade-pollux911.vercel.app/api/resetCounter`, {
              method: 'POST',
              headers: {
                  'Content-Type': 'application/json',

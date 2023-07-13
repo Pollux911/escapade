@@ -1,5 +1,6 @@
 import {ChangeEvent, FormEvent, useState } from 'react';
 import { useRouter } from 'next/router';
+import {NEXT_URL} from "../lib/VercelURL"
 import Layout from '../components/Layout';
 import { MongoClient } from 'mongodb';
 import Head from 'next/head'
@@ -46,7 +47,8 @@ export default function PasswordPage() {
             if ( localStorage.getItem("teamColor")) {
                 router.push('/congrats')
             } // else?
-            let response = await fetch('http://localhost:3000/api/getPassword?password=' + password);
+            console.log(`${NEXT_URL}/api/getPassword?password=`, "ladresse de ses norts")
+            let response = await fetch(`${NEXT_URL}/api/getPassword?password=` + password);
             let collection = await response.json();
             console.log(collection.password, 'la collec')
             const teamColor = JSON.stringify(collection.team)
