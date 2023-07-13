@@ -1,10 +1,11 @@
 import React from "react";
-
+import nextURL from '..'
 
 export default  function CounterUpdate() {
     const resetCounter = async (e: any) => {
         e.preventDefault();
-         await fetch(process.env.URL + '/api/resetCounter', {
+        console.log(  `${nextURL}/api/resetCounter`)
+         await fetch(`${nextURL}/api/resetCounter`, {
              method: 'POST',
              headers: {
                  'Content-Type': 'application/json',
